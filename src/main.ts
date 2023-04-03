@@ -31,6 +31,7 @@ async function main() {
       console.log(
         `已设置 ${config.chatgptBlockWords.length} 个ChatGPT回复关键词屏蔽. ${config.chatgptBlockWords}`
       );
+      console.log('version: v1');
     })
     .on('message', async (message) => {
       if (message.date().getTime() < initializedAt) {
@@ -42,7 +43,6 @@ async function main() {
       }
       const text = message.text();
       const type = message.type();
-      console.log('text:', text, 'type:', type, 'xxxxxx');
       if (+type !== 7) return;
       if (!text.startsWith('/gpt')) return;
 
