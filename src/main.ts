@@ -43,9 +43,15 @@ async function main() {
       }
       const text = message.text();
       const type = message.type();
-      console.log(text, 'xxxxxxxxx', type, 'xxxxxxxx');
+      console.log(
+        text,
+        text.trim().startsWith('/g'),
+        'xxxxxxxxx',
+        type,
+        'xxxxxxxx'
+      );
       if (+type !== 7) return;
-      if (!text.startsWith('/g')) return;
+      if (!text.trim().startsWith('/g')) return;
 
       try {
         await chatGPTBot.onMessage(message);
