@@ -41,17 +41,11 @@ async function main() {
         await message.say('pong');
         return;
       }
-      const text = message.text();
+      let text = message.text().split(' ')[1].trim();
       const type = message.type();
-      console.log(
-        text,
-        text.trim().startsWith('/g'),
-        'xxxxxxxxx',
-        type,
-        'xxxxxxxx'
-      );
+      console.log(text, text.startsWith('/g'), 'xxxxxxxxx', type, 'xxxxxxxx');
       if (+type !== 7) return;
-      if (!text.trim().startsWith('/g')) return;
+      if (!text.startsWith('/g')) return;
 
       try {
         await chatGPTBot.onMessage(message);
