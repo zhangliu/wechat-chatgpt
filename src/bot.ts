@@ -197,7 +197,7 @@ export class ChatGPTBot {
     text: string
   ): boolean {
     return (
-      talker.self() ||
+      // talker.self() ||
       // TODO: add doc support
       !(messageType == MessageType.Text || messageType == MessageType.Audio) ||
       talker.name() === "微信团队" ||
@@ -225,7 +225,8 @@ export class ChatGPTBot {
     room: RoomInterface
   ) {
     const gptMessage = await this.getGPTMessage(await room.topic(),text);
-    const result = `@${talker.name()} ${text}\n\n------\n ${gptMessage}`;
+    // const result = `@${talker.name()} ${text}\n\n------\n ${gptMessage}`;
+    const result = `${text}\n\n------\n ${gptMessage}`;
     await this.trySay(room, result);
   }
   async onMessage(message: Message) {

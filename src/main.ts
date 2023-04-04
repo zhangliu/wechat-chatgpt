@@ -43,8 +43,10 @@ async function main() {
       }
 
       if (+message.type() !== 7) return;
-      // const isZl = chatGPTBot.botName === '大柳树'
-      // if (isZl && !(message.text() || '').trim().startsWith('/g')) return;
+      if (
+        !(message.text() || '').trim().startsWith(`@${chatGPTBot.botName}\\s/g`)
+      )
+        return;
 
       try {
         await chatGPTBot.onMessage(message);
