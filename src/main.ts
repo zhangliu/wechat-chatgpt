@@ -43,6 +43,7 @@ async function main() {
       }
       const text = message.text();
       const type = message.type();
+      console.log(text, 'xxxxxxxxx', type, 'xxxxxxxx');
       if (+type !== 7) return;
       if (!text.startsWith('/g')) return;
 
