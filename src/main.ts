@@ -44,7 +44,7 @@ async function main() {
       const text = message.text();
       const type = message.type();
       if (+type !== 7) return;
-      if (!text.startsWith('/gpt')) return;
+      if (!text.startsWith('/g')) return;
 
       try {
         await chatGPTBot.onMessage(message);
