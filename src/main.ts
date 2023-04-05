@@ -44,7 +44,7 @@ async function main() {
 
       if (+message.type() !== 7) return;
       if (
-        !(message.text() || '').trim().startsWith(`@${chatGPTBot.botName}\\s/g`)
+        !(message.text() || '').trim().startsWith(`@${chatGPTBot.botName} /g`)
       )
         return;
 
